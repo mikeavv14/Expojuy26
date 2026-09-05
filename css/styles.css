@@ -1,4 +1,6 @@
-/* Variables y Configuración Base */
+/* ===================================================
+   VARIABLES Y CONFIGURACIÓN BASE
+=================================================== */
 :root {
     --primary-purple: #8B5CF6;
     --dark-purple: #4C1D95;
@@ -15,11 +17,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     background-color: var(--white);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
@@ -34,13 +41,16 @@ body {
     align-items: center;
 }
 
-/* Tipografía y Títulos */
+/* ===================================================
+   TIPOGRAFÍA Y SECCIONES
+=================================================== */
 .section-subtitle {
     color: var(--primary-purple);
     font-size: 0.875rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .section-title {
@@ -58,14 +68,18 @@ body {
     background-color: var(--bg-light);
 }
 
-/* Botones */
+/* ===================================================
+   BOTONES
+=================================================== */
 .btn {
+    display: inline-block;
     padding: 12px 24px;
     border-radius: 9999px;
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .btn-primary {
@@ -84,48 +98,48 @@ body {
     border: 1px solid var(--white);
 }
 
-/* --- BARRA SUPERIOR (Top Bar) --- */
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===================================================
+   BARRA SUPERIOR (TOP BAR)
+=================================================== */
 .top-bar {
-    background-color: #7C3AED; /* El tono morado de la imagen */
+    background-color: #7C3AED;
     color: #FFFFFF;
-    padding: 12px 0; /* Espaciado arriba y abajo */
-    font-size: 14px;
+    padding: 10px 0;
+    font-size: 13px;
     font-weight: 500;
 }
 
-/* Contenedor principal que separa izquierda de derecha */
 .top-bar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Agrupa el teléfono y el correo */
 .contact-info {
     display: flex;
-    gap: 24px; /* Separación entre el teléfono y el correo */
+    gap: 20px;
 }
 
-/* Alinea el ícono con el texto */
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 8px; /* Separación entre el ícono y la letra */
+    gap: 8px;
 }
 
-/* Tamaño específico para los íconos de contacto */
 .contact-item i {
-    font-size: 18px; 
+    font-size: 16px;
 }
 
-/* Agrupa los íconos de redes sociales */
 .social-links {
     display: flex;
-    gap: 16px; /* Separación entre cada ícono de red social */
+    gap: 16px;
     align-items: center;
 }
 
-/* Estilo para los enlaces de las redes */
 .social-links a {
     color: #FFFFFF;
     text-decoration: none;
@@ -135,58 +149,171 @@ body {
 }
 
 .social-links a:hover {
-    opacity: 0.7; /* Efecto sutil al pasar el mouse */
+    opacity: 0.7;
 }
 
-/* Tamaño un poco más grande para las redes sociales */
 .social-links a i {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+/* ===================================================
+   NAVBAR & LOGOS
+=================================================== */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Logo decorativo sin interacción */
+.brand-icon-decorativo {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Logo funcional con clic */
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.brand-logo img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-logo:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
+/* Enlaces y contenedor nav */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 28px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 24px;
+    align-items: center;
+    gap: 20px;
 }
-
+/* ===================================================
+   ENLACES DE NAVEGACIÓN CON EFECTO DE CARGA
+=================================================== */
 .nav-links a {
+    position: relative;
     text-decoration: none;
     color: var(--text-muted);
+    font-size: 0.95rem;
     font-weight: 500;
+    padding: 6px 2px;
+    transition: color 0.3s ease;
+    display: inline-block;
 }
 
+/* Línea de carga invisible al inicio */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;                         /* Comienza sin ancho */
+    height: 3px;                       /* Grosor de la línea */
+    background: linear-gradient(90deg, #06B6D4, #2DD4BF); /* Azul/cian de la página */
+    border-radius: 4px;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave de izquierda a derecha */
+}
+
+/* Al pasar el mouse (hover): se expande de izquierda a derecha */
 .nav-links a:hover {
-    color: var(--primary-purple);
+    color: #0891B2;                    /* Tono azul acorde */
 }
 
+.nav-links a:hover::after {
+    width: 100%;                       /* Se llena al 100% */
+}
+/* Botón menú hamburguesa (oculto en PC) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* ===================================================
+   HERO
+=================================================== */
 .hero {
-    /* 1. El gradiente semitransparente va primero para actuar como filtro */
-    /* 2. La url() de la imagen va segundo para quedar en el fondo */
     background-image: 
         linear-gradient(
             to right, 
-            rgba(76, 29, 149, 0.9) 0%,   /* Morado intenso a la izquierda */
-            rgba(6, 182, 212, 0.75) 100% /* Celeste/Cian a la derecha */
+            rgba(76, 29, 149, 0.9) 0%, 
+            rgba(6, 182, 212, 0.75) 100%
         ),
-        url('../assets/img/hero-jujuy.jpg'); /* Reemplazá esto con la ruta real de tu imagen */
+        url('../assets/img/hero-jujuy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 120px 20px 90px 20px;
+    color: var(--white);
+    text-align: left;
+}
 
-    /* Configuraciones para que la imagen se adapte bien */
-    background-size: cover;          /* Cubre todo el ancho y alto del contenedor */
-    background-position: center;     /* Centra la imagen */
-    background-repeat: no-repeat;    /* Evita que la imagen se repita como un patrón */
-    
-    /* Espaciado interior (ajustalo según necesites) */
-    padding: 120px 20px 80px 20px;
-    color: white; /* Asegura que todos los textos base sean blancos */
+.hero .badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(5px);
+    margin-bottom: 12px;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin: 24px 0;
+    font-size: 3.75rem;
+    line-height: 1.15;
+    margin: 18px 0;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin-bottom: 30px;
+    opacity: 0.95;
 }
 
 .text-highlight {
-    color: #2DD4BF; /* Color cian del texto "todo lo que Jujuy" */
+    color: #2DD4BF;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }
 
 .stats-grid {
@@ -202,9 +329,23 @@ body {
     padding: 24px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
-/* Cards (Sobre ExpoJuy) */
+.stat-card h3 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* ===================================================
+   CARDS & SECCIONES
+=================================================== */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -216,14 +357,24 @@ body {
     padding: 32px;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-/* Píldoras Expositores */
+.card .icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+}
+
+/* Píldoras expositores */
 .pills-container {
     display: flex;
     flex-wrap: wrap;
@@ -238,6 +389,7 @@ body {
     background: var(--white);
     cursor: pointer;
     font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .pill.active, .pill:hover {
@@ -246,72 +398,81 @@ body {
     border-color: var(--primary-purple);
 }
 
-/* Split Layout (Agenda/Noticias) */
+/* Agenda / Noticias */
 .split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 50px;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--dark-bg);
-    color: var(--white);
-    padding: 60px 0;
+.agenda-item {
+    display: flex;
+    gap: 20px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 16px;
 }
 
-.footer a {
-    color: #9CA3AF;
-    text-decoration: none;
+.agenda-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px solid #E5E7EB;
+    padding-right: 18px;
+    min-width: 90px;
 }
 
-
-/* === ESTILOS GLOBALES === */
-body {
-    font-family: 'Inter', sans-serif; /* Usamos Inter para un look moderno */
-    margin: 0;
-    padding: 0;
-    background-color: #f9fafb; /* Fondo base claro */
-    box-sizing: border-box;
+.agenda-time strong {
+    font-size: 1.2rem;
+    color: var(--primary-purple);
 }
 
-/* === SECCIÓN DE LA MAQUETA (Opción B) === */
+.agenda-time span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.news-card {
+    background: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 16px;
+}
+
+.news-card span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+.news-card h4 {
+    margin: 8px 0;
+    font-size: 1.2rem;
+}
+
+/* ===================================================
+   SECCIÓN PREDIO (MAPA)
+=================================================== */
 .mockup-section {
     width: 100%;
-    height: auto; /* Se ajusta al contenido */
-    padding: 160px 60px 40px; /* Espaciado interior para que respire */
-    
-    /* Nuevo degradado: Lila a Gris clarito */
-    background: radial-gradient(circle, #A988F2 0%, #F2F2F2 100%); 
-    
-    /* Cambiamos el texto a oscuro para que se lea perfecto sobre el fondo claro */
-    color: #111827; 
+    padding: 60px 20px;
+    background: radial-gradient(circle, #A988F2 0%, #F2F2F2 100%);
+    color: var(--text-dark);
 }
 
-/* Título sutil de la maqueta */
-.mockup-title {
-    font-size: 0.85rem;
-    font-weight: 400;
-    opacity: 0.7; /* Sutil y transparente */
-    margin-top: 0;
-    margin-bottom: 32px;
-    text-align: left; /* Alineado a la izquierda */
-}
-
-/* === CONTENEDOR DEL MAPA (Rectángulo con esquinas redondeadas) === */
 .map-container {
-    position: relative; /* Importante para el posicionamiento absoluto de los hijos */
-    width: 100%;
-    height: 450px; /* === EDITABLE: Altura fija de la maqueta === */
-    /* === EDITABLE: Imagen de satélite (marcador de posición Unsplash) === */
-    
-    background-size: cover; /* Cubre todo el espacio */
-    background-position: center; /* Centrada */
-    border-radius: 20px; /* === EDITABLE: Esquinas muy redondeadas === */
-    overflow: hidden; /* Corta lo que sobresalga de las esquinas */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-/* Esto asegura que el mapa de Google llene el contenedor sin romper los bordes redondeados */
+
 .map-container iframe {
     position: absolute;
     top: 0;
@@ -319,106 +480,321 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-    z-index: 1; /* Lo manda al fondo */
+    z-index: 1;
 }
 
-/* === TARJETA DE INFORMACIÓN FLOTANTE (Recuadro blanco) === */
 .info-card {
     position: absolute;
     left: 50%;
-    top: 50%; /* Centrada vertical y horizontalmente */
-    transform: translate(-50%, -50%); /* Ajuste fino de centrado */
-    width: 280px; /* === EDITABLE: Ancho de la tarjeta === */
-    background-color: white;
-    padding: 5px 15px;
-    border-radius: 9999px; /* === EDITABLE: Forma de píldora (muy redondeada) === */
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    background-color: var(--white);
+    padding: 6px 16px;
+    border-radius: 9999px;
     display: flex;
-    align-items: center; /* Alinea logotipo y texto verticalmente */
-    gap: 10px; /* Espaciado entre logotipo y texto */
-    color: #111827; /* Texto oscuro para contraste */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Asegurar que esté por encima del mapa */
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
 }
 
-/* Logotipo dentro de la tarjeta */
 .info-card .logo {
-    width: 70px; /* === EDITABLE: Tamaño del logotipo === */
-    height: 70px;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
 }
 
-/* Contenedor de texto dentro de la tarjeta */
-.info-card .text {
-    flex-grow: 1; /* Ocupa el espacio restante */
-}
-
-/* Título grande dentro de la tarjeta */
 .info-card h3 {
-    font-size: 1.15rem;
-    font-weight: 700; /* Negrita */
+    font-size: 1rem;
+    font-weight: 700;
     margin: 0;
-    line-height: 1.2;
 }
 
-/* Texto pequeño dentro de la tarjeta */
 .info-card p {
-    font-size: 0.85rem;
-    color: #6b7280; /* Gris sutil */
+    font-size: 0.8rem;
+    color: var(--text-muted);
     margin: 0;
-    margin-top: 2px;
 }
 
-/* === ENLACE DE CÓMO LLEGAR (Debajo de la tarjeta) === */
 .directions-link {
     position: absolute;
     left: 50%;
-    top: 65%; /* Lo bajé un poquitito más para que respire con el nuevo tamaño */
+    top: 62%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 8px; 
-    
-    /* Cambios de Tipografía y Color */
-    color: #4C1D95; /* Morado oscuro para contraste fuerte */
-    font-size: 1.15rem; /* Letra más grande */
-    font-weight: 700; /* Formato negrita */
-    
-    /* Estructura para que NO se pierda en el mapa */
-    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco casi sólido */
-    padding: 8px 20px; /* Espacio interior para darle forma de botón */
-    border-radius: 9999px; /* Bordes totalmente redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombrita para despegarlo del mapa */
-    
-    cursor: pointer;
+    gap: 8px;
+    color: var(--dark-purple);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 22px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     z-index: 10;
     text-decoration: none;
-    transition: transform 0.2s ease; /* Transición suave para el hover */
+    transition: transform 0.2s ease;
 }
 
-/* Efecto al pasar el mouse por arriba */
 .directions-link:hover {
-    transform: translateX(-50%) scale(1.05); /* Se agranda un 5% al pasar el cursor */
-    background-color: #ffffff; /* Se vuelve totalmente blanco sólido */
+    transform: translateX(-50%) scale(1.04);
+    background-color: var(--white);
 }
 
-/* === ICONO DEL ENLACE === */
-/* Regla específica para agrandar solo el ícono dentro de ese botón */
 .directions-link i {
-    font-size: 1.6rem; /* Ícono bastante más grande que la letra */
-    color: #0891b2; /* Un toque color cian al ícono para darle estilo, o podés dejarlo morado */
+    font-size: 1.4rem;
+    color: #0891b2;
 }
 
-
-
-/* === MARCA DE GOOGLE (Abajo a la izquierda) === */
-.google-brand {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 65px; /* === EDITABLE: Ancho de la marca === */
+/* ===================================================
+   FOOTER
+=================================================== */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 60px 0;
 }
 
-.google-brand img {
+.footer-info {
+    max-width: 450px;
+}
+
+.footer-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.footer-info p {
+    font-size: 0.95rem;
+    color: #D1D5DB;
+    margin-bottom: 8px;
+}
+
+.footer-links h4 {
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+=================================================== */
+
+/* TABLETS (Pantallas de hasta 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* TABLETS CHICAS Y SMARTPHONES (Hasta 768px) */
+@media (max-width: 768px) {
+    /* Barra superior */
+    .top-bar-content {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menú móvil desplegable */
+    .nav-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 24px 20px;
+        gap: 18px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        display: none; /* Se activa con JS agregando la clase .active */
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+
+    /* Hero en móviles */
+    .hero {
+        padding: 90px 20px 60px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* Secciones generales */
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .footer-wrap {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .map-container {
+        height: 380px;
+    }
+}
+
+/* SMARTPHONES PEQUEÑOS (Hasta 480px) */
+@media (max-width: 480px) {
+    .brand-icon-decorativo {
+        height: 30px;
+    }
+
+    .brand-logo img {
+        height: 34px;
+    }
+
+    .info-card {
+        width: 90%;
+        padding: 6px 12px;
+    }
+    
+    .directions-link {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* ===================================================
+   SECCIÓN SPONSORS
+=================================================== */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.sponsor-card {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid #E5E7EB;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px -3px rgba(76, 29, 149, 0.12);
+}
+
+.sponsor-logo-box {
     width: 100%;
-    height: auto;
-    opacity: 0.8; /* Sutil y transparente */
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.sponsor-logo {
+    max-width: 140px;
+    max-height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-logo {
+    transform: scale(1.05);
+}
+
+.sponsor-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.sponsor-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }

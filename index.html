@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExpoJuy 2026 | Innovación, Talento, Desarrollo</title>
+    <title>ExpoJuy 2026 | Conectando países, Creando oportunidades</title>
+    <link rel="icon" type="image/png" href="assets/icons/expojuy26_isologotipo.png">
+
     <link rel="stylesheet" href="css/styles.css">
     <!-- Librería de íconos Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -14,7 +16,7 @@
     <!-- BARRA SUPERIOR DE CONTACTO -->
     <div class="top-bar">
         <div class="container top-bar-content">
-        <!-- Izquierda: Datos de contacto -->
+            <!-- Izquierda: Datos de contacto -->
             <div class="contact-info">
                 <span class="contact-item">
                     <i class='bx bx-phone'></i> +54 388 000-0000
@@ -23,37 +25,51 @@
                     <i class='bx bx-envelope'></i> contacto@expojuy.com.ar
                 </span>
             </div>
-        
-        <!-- Derecha: Redes sociales -->
+            
+            <!-- Derecha: Redes sociales -->
             <div class="social-links">
-                <a href="#"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-instagram'></i></a>
-                <a href="#"><i class='bx bxl-whatsapp'></i></a>
-                <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
             </div>
         </div>
     </div>
 
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <header class="navbar">
         <div class="container flex-between">
+            <!-- Izquierda: Logos -->
             <div class="logo">
-                <strong>EXPOJUY</strong> <span>2026</span>
-            </div>
-            <nav>
+                <img src="assets/icons/expojuy26_isologotipo.png" alt="ExpoJuy 2026 Decorativo" class="brand-icon-decorativo">
+                <a href="#" class="brand-logo" title="Ir al inicio">
+                    <img src="assets/icons/logo_expo.png" alt="ExpoJuy 2026 Logo">
+                </a>
+            </div> 
+
+            <!-- Botón Menú Móvil (Hamburguesa) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <!-- Menú Central y Botón Acreditate agrupados para Responsive -->
+            <nav class="nav-container" id="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="#sobre-expojuy">Sobre ExpoJuy</a></li>
+                    <li><a href="#sobre-expojuy">Sobre</a></li>
                     <li><a href="#expositores">Expositores</a></li>
                     <li><a href="#agenda">Agenda</a></li>
                     <li><a href="#noticias">Noticias</a></li>
                     <li><a href="#predio">Predio</a></li>
-                    <li><a href="#sponsors">Sponsors</a></li>
                     <li><a href="#preguntas">Preguntas</a></li>
+                    <li><a href="#sponsors">Sponsors</a></li>
+                    
                 </ul>
+                <a href="#acreditate" class="btn btn-primary nav-btn">Acreditate</a>
             </nav>
-            <a href="#" class="btn btn-primary">Acreditate</a>
         </div>
     </header>
 
+    <!-- SECCIÓN HERO -->
     <section id="inicio" class="hero">
         <div class="container">
             <span class="badge">10 · 11 · 12 SEPTIEMBRE 2026</span>
@@ -61,8 +77,8 @@
             <p>Tres días de industria, tecnología y negocios en el Predio Ferial de San Salvador de Jujuy. Conocé a los expositores, armá tu agenda y acreditate en minutos.</p>
             
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Acreditación gratuita →</a>
-                <a href="#agenda" class="btn btn-outline">Ver agenda</a>
+                <a href="#acreditate" class="btn btn-primary">Acreditación gratuita →</a>
+                <a href="#agenda-noticias" class="btn btn-outline">Ver agenda</a>
             </div>
 
             <div class="stats-grid">
@@ -74,6 +90,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN SOBRE EXPOJUY -->
     <section id="sobre-expojuy" class="section bg-light">
         <div class="container">
             <h4 class="section-subtitle">SOBRE LA EXPOJUY 2026</h4>
@@ -99,9 +116,10 @@
         </div>
     </section>
 
+    <!-- SECCIÓN EXPOSITORES -->
     <section id="expositores" class="section">
         <div class="container">
-            <div class="flex-between align-center">
+            <div class="flex-between align-center section-header-wrap">
                 <div>
                     <h4 class="section-subtitle">EXPOSITORES</h4>
                     <h2 class="section-title">Empresas de todos los rubros</h2>
@@ -119,14 +137,10 @@
             </div>
         </div>
     </section>
-    <!-- === SECCIÓN UBICACIÓN DEL PREDIO (Opción B) === -->
+
+    <!-- SECCIÓN UBICACIÓN DEL PREDIO -->
     <section id="predio" class="mockup-section">
-        
         <div class="map-container">
-            <!-- Imagen de satélite (marcador de posición) -->
-            <!-- === EDITABLE: Reemplaza esta URL con tu imagen de satélite real del Predio === -->
-            <!-- Puedes usar una captura de Google Maps satélite o una foto aérea -->
-             <!-- ACÁ ESTÁ TU IFRAME DE GOOGLE MAPS -->
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.52661550871562!2d-65.33177385710465!3d-24.184085684977738!2m3!1f27.67203513909223!2f45.45313249353954!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x941b0f006303245f%3A0x885fd29f6a3df338!2sCircuito%20Cdad.%20Cultural%2C%20Jujuy!5e1!3m2!1ses-419!2sar!4v1788625484169!5m2!1ses-419!2sar" 
                 width="100%" 
@@ -138,25 +152,22 @@
             </iframe>
             
             <div class="info-card">
-                <!-- Logotipo (marcador de posición) -->
-                <!-- === EDITABLE: Reemplaza con tu archivo de logotipo === -->
-                <img src="assets\icons\expojuy26_isologotipo.png" alt="EXPOJUY Logo" class="logo">
+                <img src="assets/icons/expojuy26_isologotipo.png" alt="EXPOJUY Logo" class="logo">
                 <div class="text">
                     <h3>EXPOJUY 2026</h3>
                     <p>Predio Ferial, Jujuy</p>
                 </div>
             </div>
             
-            <!-- ENLACE CÓMO LLEGAR -->
             <a href="https://www.google.com/maps/dir/?api=1&destination=-24.1840857,-65.3317739" target="_blank" class="directions-link">
-                 <i class='bx bx-map-pin'></i>
+                <i class='bx bx-map-pin'></i>
                 <span>Cómo Llegar</span>
             </a>
-
         </div>
     </section>
 
-    <section id="agenda-noticias" class="section bg-light">
+    <!-- SECCIÓN AGENDA Y NOTICIAS -->
+    <section id="agenda" class="section bg-light">
         <div class="container split-layout">
             <div class="agenda-col">
                 <h4 class="section-subtitle">AGENDA DESTACADA</h4>
@@ -172,9 +183,9 @@
                         <p>Institucional - Escenario Central</p>
                     </div>
                 </div>
-                </div>
+            </div>
 
-            <div class="noticias-col">
+            <div class="noticias">
                 <h4 class="section-subtitle">NOTICIAS</h4>
                 <h2 class="section-title">Últimas novedades</h2>
                 
@@ -187,8 +198,46 @@
         </div>
     </section>
 
+<!-- SECCIÓN SPONSORS -->
+    <section id="sponsors" class="section bg-light">
+        <div class="container">
+            <h4 class="section-subtitle">ACOMPAÑAN ESTA EDICIÓN</h4>
+            <h2 class="section-title">Nuestros Sponsors</h2>
+            
+            <div class="sponsors-grid">
+                <!-- Sponsor 1 -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo-box">
+                        <img src="assets/icons/logo_jujuy.png" alt="Gobierno de Jujuy" class="sponsor-logo">
+                    </div>
+                    <h3 class="sponsor-name">Gobierno de Jujuy</h3>
+                    <span class="sponsor-category">Main Sponsor</span>
+                </div>
+
+                <!-- Sponsor 2 -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo-box">
+                        <img src="assets/icons/logo_municipio.png" alt="Banco Macro" class="sponsor-logo">
+                    </div>
+                    <h3 class="sponsor-name">Municipalidad de San Salvador de Jujuy</h3>
+                    <span class="sponsor-category">Sponsor Platino</span>
+                </div>
+
+                <!-- Sponsor 3 -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo-box">
+                        <img src="assets/icons/logo_consejo_federal.png" alt="Cámara Minera" class="sponsor-logo">
+                    </div>
+                    <h3 class="sponsor-name">Consejo Federal de Inversiones</h3>
+                    <span class="sponsor-category">Sponsor Oro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="container flex-between">
+        <div class="container flex-between footer-wrap">
             <div class="footer-info">
                 <h2>ExpoJuy 2026</h2>
                 <p>La feria productiva más importante del Norte Argentino. Innovación, tecnología, producción y vinculación empresarial.</p>
@@ -199,7 +248,7 @@
                 <ul>
                     <li><a href="#sobre-expojuy">Sobre ExpoJuy</a></li>
                     <li><a href="#expositores">Expositores</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#predio">Predio</a></li>
                 </ul>
             </div>
         </div>
