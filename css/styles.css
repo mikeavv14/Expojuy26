@@ -279,13 +279,13 @@ body {
 .mockup-section {
     width: 100%;
     height: auto; /* Se ajusta al contenido */
-    padding: 160px 60px 40px; /* Espaciado interior para que respire */
+    padding: 60px 60px 40px; /* Espaciado interior para que respire */
     
     /* Nuevo degradado: Lila a Gris clarito */
-    background: radial-gradient(circle, #A988F2 0%, #F2F2F2 100%); 
+    background: #041340; 
     
     /* Cambiamos el texto a oscuro para que se lea perfecto sobre el fondo claro */
-    color: #111827; 
+    color: #FCFDFE; 
 }
 
 /* Título sutil de la maqueta */
@@ -409,16 +409,36 @@ body {
 
 
 
-/* === MARCA DE GOOGLE (Abajo a la izquierda) === */
-.google-brand {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 65px; /* === EDITABLE: Ancho de la marca === */
+.subtitle {
+    color: var(--primary-purple);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    padding: 0;
 }
 
-.google-brand img {
-    width: 100%;
-    height: auto;
-    opacity: 0.8; /* Sutil y transparente */
+/* Estilos para la línea de la dirección con ícono */
+.ubicacion-texto {
+    display: flex;
+    align-items: center; /* Centra el ícono y el texto verticalmente */
+    gap: 8px; /* Espacio entre el ícono y la primera letra */
+    font-size: 1.5rem;
+    justify-content: center;
+    font-weight: 500;
+    margin-bottom: 15px; /* Espacio hacia abajo antes del mapa */
+    font-weight: 700;
 }
+
+/* Para darle un toque de color y tamaño al ícono sin afectar el texto */
+.ubicacion-texto i {
+    font-size: 2rem; /* Hace el ícono un poquito más grande que la letra */
+    color: #730DD9; /* Color morado para que combine (podés cambiarlo) */
+}
+
